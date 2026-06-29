@@ -1,0 +1,75 @@
+{
+  "name": "scalable-realtime-engine",
+  "version": "1.0.0",
+  "description": "High-performance real-time messaging engine with horizontal scaling via Redis pub/sub",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "engines": {
+    "node": ">=20.0.0",
+    "npm": ">=10.0.0"
+  },
+  "scripts": {
+    "build": "tsc --build tsconfig.json",
+    "dev": "tsx watch src/index.ts",
+    "start": "node dist/index.js",
+    "start:cluster": "node dist/index.js --cluster",
+    "lint": "eslint src/ --ext .ts",
+    "lint:fix": "eslint src/ --ext .ts --fix",
+    "test": "jest --coverage",
+    "test:watch": "jest --watch",
+    "typecheck": "tsc --noEmit",
+    "clean": "rm -rf dist/",
+    "docker:build": "docker build -t scalable-realtime-engine .",
+    "docker:up": "docker-compose up -d",
+    "docker:down": "docker-compose down",
+    "docker:logs": "docker-compose logs -f",
+    "benchmark": "node benchmarks/load-test.js",
+    "benchmark:cluster": "node benchmarks/cluster-load-test.js"
+  },
+  "keywords": [
+    "websocket",
+    "realtime",
+    "messaging",
+    "redis",
+    "pubsub",
+    "horizontal-scaling",
+    "cluster",
+    "presence",
+    "typescript",
+    "collaborative-editing"
+  ],
+  "author": "Rajeshwar Rao <rajeshwarrao1253@gmail.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rajeshwarrao1253/scalable-realtime-engine.git"
+  },
+  "bugs": {
+    "url": "https://github.com/rajeshwarrao1253/scalable-realtime-engine/issues"
+  },
+  "homepage": "https://github.com/rajeshwarrao1253/scalable-realtime-engine#readme",
+  "dependencies": {
+    "cluster": "^0.7.7",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "ioredis": "^5.3.2",
+    "prom-client": "^15.1.0",
+    "uuid": "^9.0.1",
+    "winston": "^3.11.0",
+    "ws": "^8.14.2"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.21",
+    "@types/jest": "^29.5.10",
+    "@types/node": "^20.10.0",
+    "@types/uuid": "^9.0.7",
+    "@types/ws": "^8.5.10",
+    "@typescript-eslint/eslint-plugin": "^6.13.0",
+    "@typescript-eslint/parser": "^6.13.0",
+    "eslint": "^8.54.0",
+    "jest": "^29.7.0",
+    "ts-jest": "^29.1.0",
+    "tsx": "^4.6.0",
+    "typescript": "^5.3.0"
+  }
+}
